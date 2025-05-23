@@ -4,6 +4,6 @@ WORKDIR /app
 RUN pip install poetry
 
 COPY . .
-RUN poetry install . --no-root
+RUN poetry install --no-root
 
 CMD [ "poetry", "run", "python", "src/main.py"]
