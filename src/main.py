@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 class WeatherSSEServer:
     """MCP Server that connects to Open-Meteo API through streamable-http."""
 
-    def __init__(self, port: int = 8080, host: str = "0.0.0.0"):
+    def __init__(self, port: int = 8080, host: str = "0.0.0.0"):  # noqa: S104
         self._port = port
         self._host = host
         self._client = WeatherForecastAPIsApi(ApiClient())
@@ -24,9 +24,9 @@ class WeatherSSEServer:
     def start(self):
         logger.info(f"Starting MCP Weather SSE Server on {self._host}:{self._port}")
         self._server.run(
-            transport="streamable-http",            
+            transport="streamable-http",
             host=self._host,
-            port=self._port,            
+            port=self._port,
         )
 
     def _register_tools(self):
