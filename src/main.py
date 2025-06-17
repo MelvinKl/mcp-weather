@@ -34,9 +34,11 @@ class WeatherSSEServer:
         filtered_members = [x for x in all_members if not x[0].startswith("_") and not x[0].endswith("_http_info")]
         for member in filtered_members:
             self._server.add_tool(
-                name=member[0],
-                fn=member[1],
-                description=inspect.getdoc(filtered_members[0][1]),
+                self._server.tool(
+                    member[1],
+                    name=member[0],
+                    description=inspect.getdoc(filtered_members[0][1]),
+                )
             )
 
 
