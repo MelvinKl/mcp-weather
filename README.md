@@ -1,6 +1,15 @@
 # MCP-Weather
 
-A Model Context Protocol (MCP) server that connects to the [Open-Meteo](https://open-meteo.com/) API through streamable-http. This server provides weather data to AI clients using the MCP interface.
+A Model Context Protocol (MCP) server that connects to the [Open-Meteo](https://open-meteo.com/) API through either streamable-http (default) or sse. This server provides weather data to AI clients using the MCP interface.
+
+# Configuration
+
+The following configuration can be set with env variables:
+| Env var | Default value | Description|
+|-------|--------|-------|
+|`HOST`|`0.0.0.0`|Address to listen to.|
+|`PORT`|`8080`|Port to listen on.|
+|`TRANSPORT`|`streamable-http`|Transport used by the mcp server. Must be `streamable-http`or `sse`.|
 
 # Requirements
 It is recommended to use the provided Dockerimage, which requires only Docker to be installed.
@@ -25,7 +34,7 @@ If you want to install from source the following packages are required:
 ```
 3. Runs the server
 ```bash
-    poetry run pythonsrc/main.py
+    poetry run python src/main.py
 ```
 
 # License

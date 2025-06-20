@@ -1,3 +1,4 @@
+import os
 import inspect
 import logging
 
@@ -10,28 +11,34 @@ logger = logging.getLogger(__name__)
 
 
 class WeatherSSEServer:
-    """MCP Server that connects to Open-Meteo API through streamable-http."""
+    """MCP Server that connects to Open-Meteo API."""
 
-    def __init__(self, port: int = 8080, host: str = "0.0.0.0"):  # noqa: S104
+    def __init__(self, port: int = 8080, host: str = "0.0.0.0", transport: str = "streamable-http"):  # noqa: S104
         self._port = port
         self._host = host
-        self._client = WeatherForecastAPIsApi(ApiClient())
+        self._transport = transport
 
-        self._server = FastMCP(name="Weather SSE Server")
+        self._client = WeatherForecastAPIsApi(ApiClient())
+        self._server = FastMCP(name="Weather Server")
 
         self._register_tools()
 
     def start(self):
-        logger.info(f"Starting MCP Weather SSE Server on {self._host}:{self._port}")
+        logger.info(f"Starting MCP Weather Server on {self._host}:{self._port} using {self._transport}")
         self._server.run(
-            transport="streamable-http",
+            transport=self._transport,
             host=self._host,
             port=self._port,
         )
 
     def _register_tools(self):
         all_members = inspect.getmembers(self._client, inspect.ismethod)
-        filtered_members = [x for x in all_members if not x[0].startswith("_") and not x[0].endswith("_http_info")]
+        filtered_members = [
+            x
+            for x in all_members
+            if not x[0].startswith("_")
+            and not (x[0].endswith("_http_info") or x[0].endswith("without_preload_content"))
+        ]
         for member in filtered_members:
             self._server.add_tool(
                 self._server.tool(
@@ -43,7 +50,13 @@ class WeatherSSEServer:
 
 
 def main():
-    server = WeatherSSEServer()
+    transport = os.environ.get("TRANSPORT", "streamable-http")
+    port = os.environ.get("PORT", "8080")
+    host = os.environ.get("HOST", "0.0.0.0")
+    allowed_transports = ("streamable-http", "sse")
+    assert transport in allowed_transports, f"Transport type not recognized. Must be one of {allowed_transports}"
+
+    server = WeatherSSEServer(host=host, port=port, transport=transport)
     server.start()
 
 
