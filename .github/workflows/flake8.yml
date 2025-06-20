@@ -34,4 +34,4 @@ jobs:
       # Step 5: Run flake8 for linting/formatting checks
       - name: Run flake8
         run: |
-          poetry run flake8 .
+          make lint
