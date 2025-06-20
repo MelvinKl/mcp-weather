@@ -33,12 +33,12 @@ class WeatherSSEServer:
 
     def _register_tools(self):
         all_members = inspect.getmembers(self._client, inspect.ismethod)
-        filtered_members = [
-            x
-            for x in all_members
-            if not x[0].startswith("_")
-            and not (x[0].endswith("_http_info") or x[0].endswith("without_preload_content"))
-        ]
+        filtered_members = []
+        for x in all_members:
+            if not x[0].startswith("_") and not (
+                x[0].endswith("_http_info") or x[0].endswith("without_preload_content")
+            ):
+                filtered_members.append(x)
         for member in filtered_members:
             self._server.add_tool(
                 self._server.tool(
@@ -54,7 +54,9 @@ def main():
     port = os.environ.get("PORT", "8080")
     host = os.environ.get("HOST", "0.0.0.0")
     allowed_transports = ("streamable-http", "sse")
-    assert transport in allowed_transports, f"Transport type not recognized. Must be one of {allowed_transports}"
+    if transport not in allowed_transports:
+        logger.fatal("Transport type not recognized. Must be one of %s", allowed_transports)
+        exit(1)
 
     server = WeatherSSEServer(host=host, port=port, transport=transport)
     server.start()
