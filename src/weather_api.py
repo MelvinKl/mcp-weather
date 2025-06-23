@@ -1,13 +1,14 @@
 import requests
 
+
 class WeatherAPI:
     def __init__(self, base_url: str = "https://api.open-meteo.com/v1"):
-        self._base_url = base_url        
+        self._base_url = base_url
 
     def get_weather(
         self,
-        latitude: float|int,
-        longitude: float|int,
+        latitude: float | int,
+        longitude: float | int,
     ):
         """
         Returns the current weather as well as a forecast for the next 7 days for the specified location
@@ -18,10 +19,10 @@ class WeatherAPI:
             Latitude WSG84 coordinate
         longitude : float|int
             Longitude WSG84 coordinate
-        
+
         """
-        current_weather=True
-        daily=[
+        current_weather = True
+        daily = [
             "weather_code",
             "temperature_2m_max",
             "temperature_2m_min",
@@ -63,7 +64,7 @@ class WeatherAPI:
             "visibility_mean",
             "visibility_min",
             "visibility_max",
-            ]
+        ]
         response = requests.get(
             url=f"{self._base_url}/forecast",
             params={
@@ -74,5 +75,4 @@ class WeatherAPI:
             },
             timeout=100,
         )
-        response_json = response.json()
-        return response_json
+        return response.json()
