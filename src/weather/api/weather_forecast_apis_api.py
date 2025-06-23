@@ -44,9 +44,6 @@ class WeatherForecastAPIsApi:
         self,
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="WGS84 coordinate")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="WGS84 coordinate")],
-        hourly: Optional[List[StrictStr]] = None,
-        daily: Optional[List[StrictStr]] = None,
-        current_weather: Optional[StrictBool] = None,
         temperature_unit: Optional[StrictStr] = None,
         wind_speed_unit: Optional[StrictStr] = None,
         timeformat: Annotated[
@@ -83,12 +80,6 @@ class WeatherForecastAPIsApi:
         :type latitude: float
         :param longitude: WGS84 coordinate (required)
         :type longitude: float
-        :param hourly:
-        :type hourly: List[str]
-        :param daily:
-        :type daily: List[str]
-        :param current_weather:
-        :type current_weather: bool
         :param temperature_unit:
         :type temperature_unit: str
         :param wind_speed_unit:
@@ -120,11 +111,12 @@ class WeatherForecastAPIsApi:
         :type _host_index: int, optional
         :return: Returns the result object.
         """  # noqa: E501
-
+        current_weather=True
+        daily=["weather_code","temperature_2m_max","temperature_2m_min","apparent_temperature_max","apparent_temperature_min","sunrise","sunset","daylight_duration","sunshine_duration","uv_index_max","uv_index_clear_sky_max","rain_sum","showers_sum","precipitation_sum","snowfall_sum","precipitation_hours","precipitation_probability_max","wind_speed_10m_max","wind_gusts_10m_max","wind_direction_10m_dominant","shortwave_radiation_sum","et0_fao_evapotranspiration","relative_humidity_2m_min","relative_humidity_2m_max","relative_humidity_2m_mean","temperature_2m_mean","apparent_temperature_mean","cloud_cover_max","cloud_cover_min","cloud_cover_mean","dew_point_2m_mean","dew_point_2m_max","dew_point_2m_min","precipitation_probability_min","precipitation_probability_mean","surface_pressure_mean","surface_pressure_max","surface_pressure_min","visibility_mean","visibility_min","visibility_max"]
         _param = self._v1_forecast_get_serialize(
             latitude=latitude,
             longitude=longitude,
-            hourly=hourly,
+            hourly=[],
             daily=daily,
             current_weather=current_weather,
             temperature_unit=temperature_unit,
