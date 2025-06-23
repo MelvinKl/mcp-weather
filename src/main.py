@@ -4,8 +4,7 @@ import logging
 
 from fastmcp import FastMCP
 
-from weather.api_client import ApiClient
-from weather.api.weather_forecast_apis_api import WeatherForecastAPIsApi
+from weather_api import WeatherAPI
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +17,7 @@ class WeatherSSEServer:
         self._host = host
         self._transport = transport
 
-        self._client = WeatherForecastAPIsApi(ApiClient())
+        self._client = WeatherAPI()
         self._server = FastMCP(name="Weather Server")
 
         self._register_tools()
@@ -51,7 +50,7 @@ class WeatherSSEServer:
 
 def main():
     transport = os.environ.get("TRANSPORT", "streamable-http")
-    port = os.environ.get("PORT", "8080")
+    port = int(os.environ.get("PORT", "8080"))
     host = os.environ.get("HOST", "0.0.0.0")
     allowed_transports = ("streamable-http", "sse")
     if transport not in allowed_transports:
