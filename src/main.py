@@ -4,8 +4,7 @@ import logging
 
 from fastmcp import FastMCP
 
-from weather.api_client import ApiClient
-from weather.api.weather_forecast_apis_api import WeatherForecastAPIsApi
+from weather_api import WeatherAPI
 
 logger = logging.getLogger(__name__)
 
@@ -18,7 +17,7 @@ class WeatherSSEServer:
         self._host = host
         self._transport = transport
 
-        self._client = WeatherForecastAPIsApi(ApiClient())
+        self._client = WeatherAPI()
         self._server = FastMCP(name="Weather Server")
 
         self._register_tools()
