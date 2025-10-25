@@ -721,14 +721,14 @@ test = ["pytest (>=6)"]
 
 [[package]]
 name = "fastmcp"
-version = "2.12.3"
+version = "2.12.5"
 description = "The fast, Pythonic way to build MCP servers and clients."
 optional = false
 python-versions = ">=3.10"
 groups = ["main"]
 files = [
-    {file = "fastmcp-2.12.3-py3-none-any.whl", hash = "sha256:aee50872923a9cba731861fc0120e7dbe4642a2685ba251b2b202b82fb6c25a9"},
-    {file = "fastmcp-2.12.3.tar.gz", hash = "sha256:541dd569d5b6c083140b04d997ba3dc47f7c10695cee700d0a733ce63b20bb65"},
+    {file = "fastmcp-2.12.5-py3-none-any.whl", hash = "sha256:b1e542f9b83dbae7cecfdc9c73b062f77074785abda9f2306799116121344133"},
+    {file = "fastmcp-2.12.5.tar.gz", hash = "sha256:2dfd02e255705a4afe43d26caddbc864563036e233dbc6870f389ee523b39a6a"},
 ]
 
 [package.dependencies]
@@ -736,7 +736,7 @@ authlib = ">=1.5.2"
 cyclopts = ">=3.0.0"
 exceptiongroup = ">=1.2.2"
 httpx = ">=0.28.1"
-mcp = ">=1.12.4,<2.0.0"
+mcp = ">=1.12.4,<1.17.0"
 openapi-core = ">=0.19.5"
 openapi-pydantic = ">=0.5.1"
 pydantic = {version = ">=2.11.7", extras = ["email"]}
@@ -2458,4 +2458,4 @@ watchdog = ["watchdog (>=2.3)"]
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.13,<4.0"
-content-hash = "17b7dd939c582a05f6930f385b60fbbd1a857b125bdac6f9e500b87190b73414"
+content-hash = "72535081ccad1a216d1c3a39cee09c6ffd4cf8d0c458c9b47939bff0f9700f88"
