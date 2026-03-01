@@ -14,8 +14,7 @@ class WeatherAPI:
         latitude: float | int,
         longitude: float | int,
     ):
-        """
-        Return the current weather and 7-day forecast for the specified location.
+        """Return the current weather and 7-day forecast for the specified location."""
 
         Parameters
         ----------
