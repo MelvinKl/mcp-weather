@@ -37,6 +37,21 @@ If you want to install from source the following packages are required:
     poetry run python src/main.py
 ```
 
+# Testing
+
+To run all tests with coverage:
+```bash
+make test
+```
+
+This will:
+- Run all tests using pytest
+- Check for linting issues with flake8
+- Format code with black
+- Generate coverage reports in HTML and XML formats
+
+Test coverage is maintained at 100% for all source code.
+
 # License
 
 Apache 2
