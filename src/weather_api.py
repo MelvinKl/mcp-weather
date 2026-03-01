@@ -1,7 +1,15 @@
+"""Weather API client for Open-Meteo service."""
+
 import requests
 
 
 class WeatherAPI:
+    """Client for fetching weather data from the Open-Meteo API.
+
+    This class provides methods to retrieve current weather and forecast
+    data for specified geographic coordinates.
+    """
+
     def __init__(self, base_url: str = "https://api.open-meteo.com/v1"):
         self._base_url = base_url
 
@@ -10,8 +18,7 @@ class WeatherAPI:
         latitude: float | int,
         longitude: float | int,
     ):
-        """
-        Returns the current weather as well as a forecast for the next 7 days for the specified location
+        """Get current weather and 7-day forecast for a location.
 
         Parameters
         ----------
@@ -19,7 +26,6 @@ class WeatherAPI:
             Latitude WSG84 coordinate
         longitude : float|int
             Longitude WSG84 coordinate
-
         """
         current_weather = True
         daily = [

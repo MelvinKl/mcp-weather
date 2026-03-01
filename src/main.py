@@ -1,6 +1,8 @@
-import os
+"""MCP Weather Server for connecting to Open-Meteo API."""
+
 import inspect
 import logging
+import os
 
 from fastmcp import FastMCP
 
@@ -10,9 +12,18 @@ logger = logging.getLogger(__name__)
 
 
 class WeatherSSEServer:
-    """MCP Server that connects to Open-Meteo API."""
+    """MCP Server that connects to Open-Meteo API.
 
-    def __init__(self, port: int = 8080, host: str = "0.0.0.0", transport: str = "streamable-http"):  # noqa: S104
+    This class initializes and runs the MCP weather server using the
+    FastMCP framework and WeatherAPI client.
+    """
+
+    def __init__(
+        self,
+        port: int = 8080,
+        host: str = "0.0.0.0",
+        transport: str = "streamable-http",
+    ):  # noqa: S104
         self._port = port
         self._host = host
         self._transport = transport
@@ -23,6 +34,11 @@ class WeatherSSEServer:
         self._register_tools()
 
     def start(self):
+        """Start the MCP weather server.
+
+        Initializes and runs the FastMCP server with the configured
+        host, port, and transport settings.
+        """
         logger.info(f"Starting MCP Weather Server on {self._host}:{self._port} using {self._transport}")
         self._server.run(
             transport=self._transport,
@@ -49,6 +65,11 @@ class WeatherSSEServer:
 
 
 def main():
+    """Entry point for the MCP weather server.
+
+    Reads environment variables for configuration, validates the transport type,
+    and starts the server with the specified parameters.
+    """
     transport = os.environ.get("TRANSPORT", "streamable-http")
     port = int(os.environ.get("PORT", "8080"))
     host = os.environ.get("HOST", "0.0.0.0")
