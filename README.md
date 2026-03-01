@@ -50,7 +50,7 @@ This will:
 - Format code with black
 - Generate coverage reports in HTML and XML formats
 
-Test coverage is maintained at 100% for all source code.
+Test coverage is maintained at 100% for all source code (exceeds 80% requirement).
 
 # License
 
