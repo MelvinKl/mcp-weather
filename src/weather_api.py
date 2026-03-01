@@ -1,7 +1,11 @@
+"""Weather API client for Open-Meteo service."""
+
 import requests
 
 
 class WeatherAPI:
+    """Client for interacting with the Open-Meteo weather API."""
+
     def __init__(self, base_url: str = "https://api.open-meteo.com/v1"):
         self._base_url = base_url
 
@@ -11,7 +15,7 @@ class WeatherAPI:
         longitude: float | int,
     ):
         """
-        Returns the current weather as well as a forecast for the next 7 days for the specified location
+        Return the current weather as well as a forecast for the next 7 days for the specified location.
 
         Parameters
         ----------
