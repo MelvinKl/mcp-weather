@@ -34,7 +34,11 @@ class WeatherSSEServer:
         logger.info(
             f"Starting MCP Weather Server on {self._host}:{self._port} using {self._transport}",
         )
-        self._server.run(transport=self._transport, host=self._host, port=self._port)
+        self._server.run(
+            transport=self._transport,
+            host=self._host,
+            port=self._port,
+        )
 
     def _register_tools(self):
         all_members = inspect.getmembers(self._client, inspect.ismethod)
@@ -61,7 +65,9 @@ def main():
     host = os.environ.get("HOST", "0.0.0.0")
     allowed_transports = ("streamable-http", "sse")
     if transport not in allowed_transports:
-        logger.fatal("Transport type not recognized. Must be one of %s", allowed_transports)
+        logger.fatal(
+            "Transport type not recognized. Must be one of %s", allowed_transports
+        )
         exit(1)
 
     server = WeatherSSEServer(host=host, port=port, transport=transport)
