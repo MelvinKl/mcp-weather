@@ -1,4 +1,4 @@
-"""Main entry point for the MCP Weather Server."""
+"""MCP Weather Server main module."""
 
 import inspect
 import logging
@@ -30,7 +30,7 @@ class WeatherSSEServer:
         self._register_tools()
 
     def start(self):
-        """Start the MCP Weather Server."""
+        """Start the MCP Weather Server with the configured transport."""
         logger.info(f"Starting MCP Weather Server on {self._host}:{self._port} using {self._transport}")
         self._server.run(
             transport=self._transport,
