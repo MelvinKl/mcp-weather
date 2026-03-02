@@ -14,7 +14,8 @@ class WeatherAPI:
         latitude: float | int,
         longitude: float | int,
     ):
-        """Return the current weather and 7-day forecast for the specified location."""
+        """
+        Return the current weather and 7-day forecast for the specified location.
 
         Parameters
         ----------
@@ -23,6 +24,10 @@ class WeatherAPI:
         longitude : float|int
             Longitude WSG84 coordinate
 
+        Returns
+        -------
+        dict
+            Weather data including current weather and daily forecast
         """
         current_weather = True
         daily = [
