@@ -20,16 +20,16 @@ class WeatherAPI:
         Returns the current weather as well as a forecast for the next 7 days.
 
         Parameters
-                ----------
-                latitude : float|int
-                    Latitude WSG84 coordinate
-                longitude : float|int
-                    Longitude WSG84 coordinate
+        ----------
+        latitude : float|int
+            Latitude WSG84 coordinate
+        longitude : float|int
+            Longitude WSG84 coordinate
 
-                Returns
-                -------
-                dict
-                    Weather data including current weather and daily forecast
+        Returns
+        -------
+        dict
+            Weather data including current weather and daily forecast
         """
         current_weather = True
         daily = [

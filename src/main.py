@@ -65,9 +65,7 @@ def main():
     host = os.environ.get("HOST", "0.0.0.0")
     allowed_transports = ("streamable-http", "sse")
     if transport not in allowed_transports:
-        logger.fatal(
-            "Transport type not recognized. Must be one of %s", allowed_transports
-        )
+        logger.fatal("Transport type not recognized. Must be one of %s", allowed_transports)
         exit(1)
 
     server = WeatherSSEServer(host=host, port=port, transport=transport)
