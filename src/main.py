@@ -1,4 +1,4 @@
-"""MCP Weather Server module."""
+"""Main entry point for the MCP Weather Server."""
 
 import inspect
 import logging
