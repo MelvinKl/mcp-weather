@@ -14,15 +14,14 @@ class WeatherAPI:
         latitude: float | int,
         longitude: float | int,
     ):
-        """
-        Return the current weather as well as a forecast for the next 7 days for the specified location.
+        """Return the current weather as well as a forecast for the next 7 days for the specified location.
 
-                Parameters
-                ----------
-                latitude : float|int
-                    Latitude WSG84 coordinate
-                longitude : float|int
-                    Longitude WSG84 coordinate
+        Parameters
+        ----------
+        latitude : float|int
+            Latitude WSG84 coordinate
+        longitude : float|int
+            Longitude WSG84 coordinate
 
         """
         current_weather = True
