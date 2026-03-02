@@ -26,6 +26,10 @@ class WeatherAPI:
         longitude : float|int
             Longitude WSG84 coordinate
 
+        Returns
+        -------
+        dict
+            Weather data including current weather and daily forecast
         """
         current_weather = True
         daily = [
