@@ -1,4 +1,4 @@
-"""MCP Weather Server for connecting to Open-Meteo API."""
+"""MCP Weather Server module."""
 
 import inspect
 import logging
@@ -34,11 +34,7 @@ class WeatherSSEServer:
         self._register_tools()
 
     def start(self):
-        """Start the MCP weather server.
-
-        Initializes and runs the FastMCP server with the configured
-        host, port, and transport settings.
-        """
+        """Start the MCP Weather Server."""
         logger.info(
             f"Starting MCP Weather Server on {self._host}:{self._port} using {self._transport}"
         )
