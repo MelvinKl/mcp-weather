@@ -17,12 +17,12 @@ class WeatherAPI:
         """
         Get current weather and a 7-day forecast for the specified location.
 
-                Parameters
-                ----------
-                latitude : float|int
-                    Latitude WSG84 coordinate
-                longitude : float|int
-                    Longitude WSG84 coordinate
+        Parameters
+        ----------
+        latitude : float|int
+            Latitude WSG84 coordinate
+        longitude : float|int
+            Longitude WSG84 coordinate
 
         """
         current_weather = True
