@@ -6,3 +6,9 @@ test:
 
 black:
 	poetry run black .
+<<<<<<< HEAD
+=======
+
+test:
+	poetry run pytest
+>>>>>>> origin/main
