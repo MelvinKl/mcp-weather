@@ -1,11 +1,8 @@
 lint:
-	poetry run flake8 .
+	uv run flake8 .
 
 test:
-	poetry run pytest --cov=src --cov-report=term-missing --cov-report=html --cov-report=xml && poetry run flake8 . && poetry run black .
+	uv run pytest --cov=src --cov-report=term-missing --cov-report=html --cov-report=xml && uv run flake8 . && uv run black .
 
 black:
-	poetry run black .
-
-test:
-	poetry run pytest
+	uv run black .
