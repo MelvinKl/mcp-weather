@@ -1,4 +1,4 @@
-"""Weather API client for Open-Meteo API."""
+"""Weather API module for fetching weather data from Open-Meteo API."""
 
 import requests
 
@@ -15,9 +15,7 @@ class WeatherAPI:
         longitude: float | int,
     ):
         """
-        Get weather data for the specified location.
-
-        Returns the current weather as well as a forecast for the next 7 days.
+        Return the current weather as well as a forecast for the next 7 days for the specified location.
 
         Parameters
         ----------
