@@ -935,7 +935,7 @@ dependencies = [
     { name = "urllib3" },
 ]
 
-[package.optional-dependencies]
+[package.dev-dependencies]
 dev = [
     { name = "black" },
     { name = "coverage" },
@@ -964,54 +964,39 @@ dev = [
     { name = "pytest-cov" },
 ]
 
-[package.dev-dependencies]
-dev = [
-    { name = "black" },
-    { name = "coverage" },
-    { name = "flake8" },
-    { name = "pytest" },
-    { name = "pytest-cov" },
-]
-
 [package.metadata]
 requires-dist = [
-    { name = "black", marker = "extra == 'dev'", specifier = ">=25.1.0" },
-    { name = "coverage", marker = "extra == 'dev'", specifier = ">=7.8.0" },
-    { name = "debugpy", marker = "extra == 'dev'", specifier = ">=1.8.14" },
     { name = "fastmcp", specifier = "==2.12.5" },
-    { name = "flake8", marker = "extra == 'dev'", specifier = ">=7.2.0" },
-    { name = "flake8-annotations-complexity", marker = "extra == 'dev'", specifier = ">=0.1.0" },
-    { name = "flake8-bandit", marker = "extra == 'dev'", specifier = ">=4.1.1" },
-    { name = "flake8-black", marker = "extra == 'dev'", specifier = ">=0.4.0" },
-    { name = "flake8-bugbear", marker = "extra == 'dev'", specifier = ">=24.12.12" },
-    { name = "flake8-builtins", marker = "extra == 'dev'", specifier = ">=3.0.0" },
-    { name = "flake8-comprehensions", marker = "extra == 'dev'", specifier = ">=3.15.0" },
-    { name = "flake8-eol", marker = "extra == 'dev'", specifier = ">=0.0.8" },
-    { name = "flake8-eradicate", marker = "extra == 'dev'", specifier = ">=1.5.0" },
-    { name = "flake8-exceptions", marker = "extra == 'dev'", specifier = ">=0.0.1a0" },
-    { name = "flake8-expression-complexity", marker = "extra == 'dev'", specifier = ">=0.0.11" },
-    { name = "flake8-function-order", marker = "extra == 'dev'", specifier = ">=0.0.5" },
-    { name = "flake8-pyproject", marker = "extra == 'dev'", specifier = ">=1.2.3" },
-    { name = "flake8-pytest-style", marker = "extra == 'dev'", specifier = ">=2.1.0" },
-    { name = "flake8-quotes", marker = "extra == 'dev'", specifier = ">=3.4.0" },
-    { name = "flake8-return", marker = "extra == 'dev'", specifier = ">=1.2.0" },
-    { name = "flake8-simplify", marker = "extra == 'dev'", specifier = ">=0.22.0" },
-    { name = "flake8-tidy-imports", marker = "extra == 'dev'", specifier = ">=4.10.0" },
-    { name = "flake8-wot", marker = "extra == 'dev'", specifier = ">=0.2.0" },
-    { name = "pep8-naming", marker = "extra == 'dev'", specifier = ">=0.15.1" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = ">=9.0.0" },
-    { name = "pytest-cov", marker = "extra == 'dev'", specifier = ">=6.0.0" },
     { name = "python-dateutil", specifier = ">=2.9.0.post0,<3.0.0" },
     { name = "requests", specifier = ">=2.32.4,<3.0.0" },
     { name = "urllib3", specifier = ">=2.4.0,<3.0.0" },
 ]
-provides-extras = ["dev"]
 
 [package.metadata.requires-dev]
 dev = [
     { name = "black", specifier = ">=26.1.0" },
     { name = "coverage", specifier = ">=7.13.4" },
+    { name = "debugpy", specifier = ">=1.8.14" },
     { name = "flake8", specifier = ">=7.3.0" },
+    { name = "flake8-annotations-complexity", specifier = ">=0.1.0" },
+    { name = "flake8-bandit", specifier = ">=4.1.1" },
+    { name = "flake8-black", specifier = ">=0.4.0" },
+    { name = "flake8-bugbear", specifier = ">=24.12.12" },
+    { name = "flake8-builtins", specifier = ">=3.0.0" },
+    { name = "flake8-comprehensions", specifier = ">=3.15.0" },
+    { name = "flake8-eol", specifier = ">=0.0.8" },
+    { name = "flake8-eradicate", specifier = ">=1.5.0" },
+    { name = "flake8-exceptions", specifier = ">=0.0.1a0" },
+    { name = "flake8-expression-complexity", specifier = ">=0.0.11" },
+    { name = "flake8-function-order", specifier = ">=0.0.5" },
+    { name = "flake8-pyproject", specifier = ">=1.2.3" },
+    { name = "flake8-pytest-style", specifier = ">=2.1.0" },
+    { name = "flake8-quotes", specifier = ">=3.4.0" },
+    { name = "flake8-return", specifier = ">=1.2.0" },
+    { name = "flake8-simplify", specifier = ">=0.22.0" },
+    { name = "flake8-tidy-imports", specifier = ">=4.10.0" },
+    { name = "flake8-wot", specifier = ">=0.2.0" },
+    { name = "pep8-naming", specifier = ">=0.15.1" },
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "pytest-cov", specifier = ">=7.0.0" },
 ]
