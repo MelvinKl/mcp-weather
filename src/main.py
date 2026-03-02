@@ -57,7 +57,7 @@ class WeatherSSEServer:
 
 
 def main():
-    """Run the MCP Weather Server."""
+    """Run the Weather Server."""
     transport = os.environ.get("TRANSPORT", "streamable-http")
     port = int(os.environ.get("PORT", "8080"))
     host = os.environ.get("HOST", "0.0.0.0")
