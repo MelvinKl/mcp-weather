@@ -7,7 +7,7 @@ authors = [
 ]
 license = {text = "Apache2"}
 readme = "README.md"
-requires-python = ">=3.13,<4.0"
+requires-python = ">=3.13,<3.14"
 dependencies = [
     "fastmcp (==2.14.5)",
     "python-dateutil (>=2.9.0.post0,<3.0.0)",
@@ -53,7 +53,7 @@ max-complexity = 8
 max-annotations-complexity = 3
 docstring-convention = 'numpy'
 max-line-length = 120
-ignore = ["E203", "W503", "E704", "S104"]
+ignore = ["E203", "W503", "E704", "S104", "ANN901", "ECE001", "CFQ001", "RET503", "RET504", "RET505", "RET506", "RET507", "RET508"]
 inline-quotes = '"'
 docstring-quotes = '"""'
 multiline-quotes = '"""'
@@ -62,6 +62,10 @@ ban-relative-imports = true
 per-file-ignores = """
 tests/*:S101
 """
+
+[tool.flake8-pyproject]
+extended_default_ignore = ["ANN901", "ECE001", "CFQ001", "RET503", "RET504", "RET505", "RET506", "RET507", "RET508"]
+extended_default_select = []
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

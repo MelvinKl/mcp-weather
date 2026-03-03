@@ -1,0 +1,15 @@
+{
+  "nodes": [
+    {"id": "INIT"},
+    {"id": "FETCHING"},
+    {"id": "SUCCESS"},
+    {"id": "ERROR"}
+  ],
+  "transitions": [
+    {"from": "INIT", "to": "FETCHING", "label": "request"},
+    {"from": "FETCHING", "to": "SUCCESS", "label": "data_received"},
+    {"from": "FETCHING", "to": "ERROR", "label": "timeout"},
+    {"from": "ERROR", "to": "INIT", "label": "retry"},
+    {"from": "SUCCESS", "to": "INIT", "label": "request"}
+  ]
+}
