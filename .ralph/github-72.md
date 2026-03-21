@@ -13,23 +13,23 @@ Remove beads, Agents.md, opencode.json, etc from the repository. Every artifact 
   - Acceptance Criteria:
     - List created of: .beads directory, agents.md file, and any opencode.json or similar files
     - Verified no other LLM/beads artifacts exist (e.g., no other configuration files from LLM tools)
-- [ ] 2. Remove the .beads directory
+- [x] 2. Verify removal of .beads directory and any beads-related artifacts
   - Acceptance Criteria:
-    - .beads directory is completely removed from the repository
-    - No trace of .beads remains in the file system
-  - Note: Step 1 confirmed no .beads directory exists in the repository
-- [ ] 3. Remove the agents.md file
+    - No .beads directory exists in the repository
+    - No beads-related files or directories remain in the file system
+- [ ] 3. Verify removal of Agents.md and similar agent documentation files
   - Acceptance Criteria:
-    - agents.md file is deleted from the repository root
-    - File no longer appears in git status or file listings
-  - Note: Step 1 confirmed no agents.md file exists in the repository
-- [ ] 4. Search for and remove any opencode.json or similar LLM tool artifacts
+    - No agents.md or AGENTS.md file exists in the repository
+    - No agent documentation files remain
+  - Details from Step 2: Verification confirmed no agents.md or AGENTS.md files exist in repository root or subdirectories
+- [ ] 4. Verify removal of opencode.json and any LLM tool configuration files
   - Acceptance Criteria:
-    - No opencode.json file exists in the repository
-    - No other LLM tool configuration files remain (searched for common patterns)
-  - Note: Step 1 confirmed no opencode.json or similar LLM tool artifacts exist in the repository
+    - No opencode.json or similar LLM tool configuration files exist
+    - No .ai/, .claude/, or other LLM tool directories remain
+    - No LLM-generated artifacts (e.g., conversation history, session files) remain
+  - Details from Step 2: Repository root directory contains no opencode.json, .ai/, .claude/, or LLM tool directories; all LLM artifacts confirmed removed
 - [ ] 5. Verify that make test succeeds
   - Acceptance Criteria:
     - `make test` command executes without errors
     - All tests pass and exit successfully
-  - Note: Step 1 confirmed no LLM/beads artifacts exist, so removal steps may be unnecessary but verification still required
+  - Details from Step 2: Makefile exists at /root/git/managed/mcp-weather/Makefile; test command runs pytest with coverage, flake8 linting, and black formatting; coverage files (.coverage, coverage.xml, htmlcov/) already present from previous runs
